@@ -52,9 +52,9 @@ else
 	@echo "LNAME: $(LNAME)"
 	@echo "UNAME: $(UNAME)"
 	@echo rm -rf .git
-	@find . -name '*###cname###*' | sed -e "p;s/###cname###/$(CNAME)/g" | xargs -r -n2 mv
-	@find . -name '*###lname###*' | sed -e "p;s/###lname###/$(LNAME)/g" | xargs -r -n2 mv
-	@find . -name '*###uname###*' | sed -e "p;s/###uname###/$(UNAME)/g" | xargs -r -n2 mv
+	@find . -name '*###cname###*' | sort  -u |    sed -e "p;s/###cname###/$(CNAME)/g" | xargs -r -n2 mv
+	@find . -name '*###lname###*' | sort  -u |    sed -e "p;s/###lname###/$(LNAME)/g" | xargs -r -n2 mv
+	@find . -name '*###uname###*' | sort  -u |    sed -e "p;s/###uname###/$(UNAME)/g" | xargs -r -n2 mv
 	@grep   -ilr  '*###cname###*' | xargs -n 1 -r sed -i 's/###cname###/$(CNAME)/g'
 	@grep   -ilr  '*###lname###*' | xargs -n 1 -r sed -i 's/###lname###/$(LNAME)/g'
 	@grep   -ilr  '*###uname###*' | xargs -n 1 -r sed -i 's/###uname###/$(UNAME)/g'
