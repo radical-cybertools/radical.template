@@ -48,22 +48,22 @@ ifndef NAME
 	@printf "\n\n    Error: no project NAME given!\n"
 	@$(MAKE) help
 else
-	@echo "CNAME: $(CNAME)"
-	@echo "LNAME: $(LNAME)"
-	@echo "UNAME: $(UNAME)"
-	@echo rm -rf .git
-	@find . -name '*###cname###*' | sort  -u |    sed -e "p;s/###cname###/$(CNAME)/g" | xargs -r -n2 mv
-	@find . -name '*###lname###*' | sort  -u |    sed -e "p;s/###lname###/$(LNAME)/g" | xargs -r -n2 mv
-	@find . -name '*###uname###*' | sort  -u |    sed -e "p;s/###uname###/$(UNAME)/g" | xargs -r -n2 mv
-	@grep   -ilr  '*###cname###*' | xargs -n 1 -r sed -i 's/###cname###/$(CNAME)/g'
-	@grep   -ilr  '*###lname###*' | xargs -n 1 -r sed -i 's/###lname###/$(LNAME)/g'
-	@grep   -ilr  '*###uname###*' | xargs -n 1 -r sed -i 's/###uname###/$(UNAME)/g'
-	@grep   -ilr  '*###year###*'  | xargs -n 1 -r sed -i 's/###year###/$(YEAR)/g'
-	@grep   -ilr  '*###ndash###*' | xargs -n 1 -r sed -i 's/###ndash###/$(NDASH)/g'
-	@grep   -ilr  '*###nequl###*' | xargs -n 1 -r sed -i 's/###nequl###/$(NEQUL)/g'
-	@grep   -ilr  '*###nhash###*' | xargs -n 1 -r sed -i 's/###nhash###/$(NHASH)/g'
-	@grep   -ilr  '*###nstar###*' | xargs -n 1 -r sed -i 's/###nstar###/$(NSTAR)/g'
-	@mv Makefile.in Makefile
+	echo "CNAME: $(CNAME)"
+	echo "LNAME: $(LNAME)"
+	echo "UNAME: $(UNAME)"
+	echo rm -rf .git
+	find . -name '*###cname###*' | sort  -u |    sed -e "p;s/###cname###/$(CNAME)/g" | xargs -r -n2 mv -v
+	find . -name '*###lname###*' | sort  -u |    sed -e "p;s/###lname###/$(LNAME)/g" | xargs -r -n2 mv -v
+	find . -name '*###uname###*' | sort  -u |    sed -e "p;s/###uname###/$(UNAME)/g" | xargs -r -n2 mv -v
+	grep   -ilr  '*###cname###*' | xargs -n 1 -r sed -i 's/###cname###/$(CNAME)/g'
+	grep   -ilr  '*###lname###*' | xargs -n 1 -r sed -i 's/###lname###/$(LNAME)/g'
+	grep   -ilr  '*###uname###*' | xargs -n 1 -r sed -i 's/###uname###/$(UNAME)/g'
+	grep   -ilr  '*###year###*'  | xargs -n 1 -r sed -i 's/###year###/$(YEAR)/g'
+	grep   -ilr  '*###ndash###*' | xargs -n 1 -r sed -i 's/###ndash###/$(NDASH)/g'
+	grep   -ilr  '*###nequl###*' | xargs -n 1 -r sed -i 's/###nequl###/$(NEQUL)/g'
+	grep   -ilr  '*###nhash###*' | xargs -n 1 -r sed -i 's/###nhash###/$(NHASH)/g'
+	grep   -ilr  '*###nstar###*' | xargs -n 1 -r sed -i 's/###nstar###/$(NSTAR)/g'
+	mv Makefile.in Makefile
 endif
 
 
