@@ -1,0 +1,109 @@
+
+MAKEFLAGS += " --no-print-directory "
+
+define HELP
+
+    Note that this Makefile creates and maintaines a virtualenv in ./ve/.
+
+    make pylint
+        run pylint check on all python source files in radical/
+
+    make install
+        use 'pip install' to install in virtualenv in ./ve/
+
+    make pypi
+        create source distribution and upload to pypi
+
+
+endef
+
+.PHONY: help
+help:
+	$(info $(HELP))
+	@true
+
+
+
+PROJECT_NAME = ###lname###
+
+PWD    = $(shell pwd)
+VE     = $(PWD)/ve
+PYTHON = $(VE)/bin/python
+PIP    = $(VE)/bin/pip
+PYLINT = $(VE)/bin/pylint
+PYTEST = $(VE)/bin/py.test
+
+
+.PHONY: install install-pip
+install: install-pip
+install-pip:: virtualenv
+	$(PIP) install --upgrade .
+
+
+.PHONY: install-py
+install-py:: virtualenv
+	$(PYTHON) setup.py install .
+
+.PHONY: virtualenv
+virtualenv:: $(VE)
+$(VE)::
+	virtualenv $(VE)
+
+.PHONY: test
+test:: virtualenv
+	$(PYTHON) setup.py test
+
+
+.PHONY: sdist
+sdist::
+	$(PYTHON) setup.py sdist
+
+
+.PHONY: pypi upload
+upload::pypi
+pypi::
+	$(PYTHON) setup.py sdist upload
+
+
+.PHONY: docs
+docs:: install
+	make -C docs html
+
+
+.PHONY: pylint
+pylint:: install
+	$(PIP) install pylint
+	@rm -f pylint.out ;\
+	for f in `find radical -name \*.py | grep -v external`; do \
+		echo "checking $$f"; \
+		( \
+	    res=`$(PYLINT) -r n -f text $$f 2>&1 | grep -e '^[FE]:' | grep -v maybe-no-member` ;\
+		  test -z "$$res" || ( \
+		       echo '----------------------------------------------------------------------' ;\
+		       echo $$f ;\
+		       echo '----------------------------------------------------------------------' ;\
+		  		 echo $$res | sed -e 's/ \([FEWRC]:\)/\n\1/g' ;\
+		  		 echo \
+		  ) \
+		) | tee -a pylint.out; \
+	done ; \
+	test "`cat pylint.out | wc -c`" = 0 || false && rm -f pylint.out
+
+
+.PHONY: clean
+clean::
+	rm -rf $(PROJECT_NAME).egg-info/ build/ temp/ dist/ MANIFEST
+	rm -f  $(PROJECT_NAME)/{VERSION,VERSION.git} pylint.out
+	make -C docs clean
+	find . -name \*.pyc      -exec rm -vf {} \;
+	find . -name __pycache__ -exec rm -vf {} \;
+	find . -name \*.sw[pov]  -exec rm -vf {} \;
+	find . -name \*~         -exec rm -vf {} \;
+
+
+.PHONY: distclean
+distclean:: clean
+	rm -rf ve 
+
+
+
