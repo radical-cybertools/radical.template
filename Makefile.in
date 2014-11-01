@@ -69,7 +69,7 @@ pypi::
 .PHONY: docs
 docs:: install
 	$(PIP) install sphinx
-	make -C docs html
+	sh -c '. $(VE)/bin/activate; make -C docs html'
 
 
 .PHONY: pylint

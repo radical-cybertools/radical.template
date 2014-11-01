@@ -69,5 +69,5 @@ else
 	mv Makefile.in Makefile
 endif
 
-
+:e Ma	
 
