@@ -97,10 +97,7 @@ class our_test(Command):
     def finalize_options   (self) : pass
     def run (self) :
         testdir = "%s/tests/" % os.path.dirname(os.path.realpath(__file__))
-        retval  = sp.call([sys.executable,
-                          'py.test',
-                          '%s/configs/default.cfg' % testdir])
-        raise SystemExit(retval)
+        sys.exit (sp.call (['py.test', testdir]))
 
 
 #-------------------------------------------------------------------------------
