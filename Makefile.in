@@ -51,6 +51,7 @@ $(VE)::
 
 .PHONY: test
 test:: virtualenv
+	$(PIP) install pytest
 	$(PYTHON) setup.py test
 
 
