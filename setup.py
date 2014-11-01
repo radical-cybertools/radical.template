@@ -141,7 +141,7 @@ setup_args = {
         'Operating System :: POSIX',
         'Operating System :: Unix'
     ],
-    'namespace_packages' : 'radical',
+    'namespace_packages' : ['radical'],
     'packages'           : find_packages('radical'),
     'scripts'            : ['bin/radical###lname###-version'],
     'package_data'       : {'' : ['VERSION', 'VERSION.git']},
