@@ -129,3 +129,39 @@ distclean:: clean
 	rm -rf ve 
 
 
+.PHONY: prep_git
+prep_git:
+	@echo
+	@echo "---------------------------------------------------------------------------------"
+	@echo "After each step, press <enter>."
+	@echo "You can iterrupt (and then restart( via <ctrl-C>"
+	@echo
+	@echo "  * Create an account (or sign in) on github.com)"
+	@read reply
+	@echo "  * Join the RADICAL project at https://github.com/radical-cybertools/ "
+	@echo "    On Problems, contact Ole or Andre (ole.weidner@rutgers.edu, andre@merzky.net)."
+	@read reply
+	@echo "  * Create a new repository in the RADICAL project named 'radical.###lname###' at"
+	@echo "        https://github.com/organizations/radical-cybertools/repositories/new "
+	@echo "    On Problems, contact Ole or Andre (ole.weidner@rutgers.edu, andre@merzky.net)."
+	@read reply
+	@echo "  * Run the following set of git commands:"
+	@echo "        git init"
+	@echo "        git add * .gitignore"
+	@echo "        git commit -m  'initial commit'"
+	@echo "        git remote add origin git@github.com:radical-cybertools/radical.###lname###.git"
+	@echo "        git push origin master"
+	@read reply
+	@echo "  * Check the README content on "
+	@echo "        https://github.com/radical-cybertools/radical.###lname###"
+	@read reply
+	@echo "  * Make sure to 'watch' that repository (button on upper right)"
+	@read reply
+	@echo "  * Use the issue tracker on github, at "
+	@echo "        https://github.com/radical-cybertools/radical.###lname###/issues"
+	@read reply
+	@echo "  * Git setup is now done."
+	@read reply
+	@echo "---------------------------------------------------------------------------------"
+	@echo
+
