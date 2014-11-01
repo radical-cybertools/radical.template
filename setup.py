@@ -141,7 +141,7 @@ setup_args = {
         'Operating System :: POSIX',
         'Operating System :: Unix'
     ],
-    'packages'           : setuptools.find_packages('radical')
+    'packages'           : setuptools.find_packages('radical'),
     'scripts'            : ['bin/radical###lname###-version'],
     'package_data'       : {'' : ['VERSION', 'VERSION.git']},
     'cmdclass'           : {
