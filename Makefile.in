@@ -46,7 +46,7 @@ install-py:: virtualenv
 
 .PHONY: virtualenv
 virtualenv:: $(VE)
-$(VE)::
+$(VE):
 	virtualenv $(VE)
 
 .PHONY: test
@@ -68,6 +68,7 @@ pypi::
 
 .PHONY: docs
 docs:: install
+	$(PIP) install sphinx
 	make -C docs html
 
 
@@ -105,6 +106,5 @@ clean::
 .PHONY: distclean
 distclean:: clean
 	rm -rf ve 
-
 
 
