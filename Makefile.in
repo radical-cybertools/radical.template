@@ -136,7 +136,7 @@ prep_git:
 	@echo "After each step, press <enter>."
 	@echo "You can iterrupt (and then restart( via <ctrl-C>"
 	@echo
-	@echo "  * Create an account (or sign in) on github.com)"
+	@echo "  * Create an account (or sign in) on http://github.com)"
 	@read reply
 	@echo "  * Join the RADICAL project at https://github.com/radical-cybertools/ "
 	@echo "    On Problems, contact Ole or Andre (ole.weidner@rutgers.edu, andre@merzky.net)."
@@ -161,6 +161,50 @@ prep_git:
 	@echo "        https://github.com/radical-cybertools/radical.###lname###/issues"
 	@read reply
 	@echo "  * Git setup is now done."
+	@read reply
+	@echo "---------------------------------------------------------------------------------"
+	@echo
+
+
+.PHONY: prep_pypi
+prep_pypi:
+	@echo
+	@echo "---------------------------------------------------------------------------------"
+	@echo "After each step, press <enter>."
+	@echo "You can iterrupt (and then restart( via <ctrl-C>"
+	@echo
+	@echo "  * Create an account (or sign in) on http://pypi.python.org/pypi/)"
+	@echo "    On Problems, contact Ole or Andre (ole.weidner@rutgers.edu, andre@merzky.net)."
+	@read reply
+	@echo "  * create a '$$HOME/.pypirc' with the following content:"
+	@echo 
+	@echo "        [pypirc]"
+	@echo "        servers = pypi"
+	@echo 
+	@echo "        [server-login]"
+	@echo "        username:<your_username>"
+	@echo "        password:<your_password>"
+	@read reply
+	@echo "  * Fill missing details in 'setup.py'.  Check for TODO markers."
+	@read reply
+	@echo "  * Prepare a release of your software."
+	@echo "    That usually includes the following steps:"
+	@echo "      * make sure all tests pass"
+	@echo "      * merge devel into master"
+	@echo "      * update the VERSION file, CHANGES.md; then commit and push."
+	@echo "      * tag the release in git, via 'git tag v0.2'"
+	@echo "      * push tag to github, via 'git push --tags'"
+	@read reply
+	@echo "  * Upload to pypi via the following command:"
+	@echo "        make pypi"
+	@read reply
+	@echo "  * Make sure the uploaded package works as expected:"
+	@echo "      * create a new virtualenv via 'virtualenv test_ve'"
+	@echo "      * use that virtualenv via 'source test_ve/bin/activate'"
+	@echo "      * install your package from pypi, via 'pip install --upgrade radical.###lname###'"
+	@echo "      * ensure basic functionality, eg. via 'radical###lname###-version'"
+	@read reply
+	@echo "  * Pypi setup is now done."
 	@read reply
 	@echo "---------------------------------------------------------------------------------"
 	@echo
