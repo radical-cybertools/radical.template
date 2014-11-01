@@ -145,7 +145,7 @@ setup_args = {
     'cmdclass'           : {
         'test'           : our_test,
     },
-    'install_requires'   : ['colorama'],
+    'install_requires'   : ['radical.utils'],
     'extras_require'     : {},
     'tests_require'      : ['pytest'],
     'zip_safe'           : False
