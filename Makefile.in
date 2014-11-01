@@ -49,8 +49,9 @@ virtualenv:: $(VE)
 $(VE):
 	virtualenv $(VE)
 
-.PHONY: test
-test:: virtualenv
+.PHONY: test tests
+tests:: test
+test::  install
 	$(PIP) install pytest
 	$(PYTHON) setup.py test
 
@@ -66,8 +67,9 @@ pypi::
 	$(PYTHON) setup.py sdist upload
 
 
-.PHONY: docs
-docs:: install
+.PHONY: doc docs
+docs::  doc
+doc::   install
 	$(PIP) install sphinx
 	sh -c '. $(VE)/bin/activate; make -C docs html'
 
