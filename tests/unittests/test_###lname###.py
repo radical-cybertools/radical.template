@@ -1,6 +1,6 @@
 
 __author__    = "Radical Development Team"
-__copyright__ = "Copyright ###Year###, RADICAL@Rutgers"
+__copyright__ = "Copyright ###year###, RADICAL@Rutgers"
 __license__   = "MIT"
 
 

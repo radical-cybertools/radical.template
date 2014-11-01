@@ -1,6 +1,6 @@
 
 __author__    = "Radical.###cname### Development Team"
-__copyright__ = "Copyright ###Year###, RADICAL@Rutgers"
+__copyright__ = "Copyright ###year###, RADICAL@Rutgers"
 __license__   = "MIT"
 
 
@@ -51,7 +51,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'radical.###lname###'
-copyright = u'###Year###, RADICAL Research'
+copyright = u'###year###, RADICAL Research'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the

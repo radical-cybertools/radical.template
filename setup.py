@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 __author__    = "RADICAL Team"
-__copyright__ = "Copyright ###Year###, RADICAL Research, Rutgers University"
+__copyright__ = "Copyright ###year###, RADICAL Research, Rutgers University"
 __license__   = "MIT"
 
 
