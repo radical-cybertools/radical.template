@@ -9,7 +9,7 @@ import os
 import sys
 import subprocess as sp
 
-from setuptools import setup, Command
+from setuptools import setup, Command, find_packages
 
 name     = 'radical.###lname###'
 mod_root = 'radical/###lname###'
@@ -142,7 +142,7 @@ setup_args = {
         'Operating System :: Unix'
     ],
     'namespace_packages' : 'radical',
-    'packages'           : setuptools.find_packages('radical'),
+    'packages'           : find_packages('radical'),
     'scripts'            : ['bin/radical###lname###-version'],
     'package_data'       : {'' : ['VERSION', 'VERSION.git']},
     'cmdclass'           : {
