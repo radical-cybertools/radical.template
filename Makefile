@@ -51,7 +51,7 @@ else
 	@echo "CNAME: $(CNAME)"
 	@echo "LNAME: $(LNAME)"
 	@echo "UNAME: $(UNAME)"
-	echo rm -rf .git
+	mv .git .git.radical.template
 	find . -name '*###cname###*' -type d |          sed -e "p;s/###cname###/$(CNAME)/" | xargs -r -n2 mv -v
 	find . -name '*###lname###*' -type d |          sed -e "p;s/###lname###/$(LNAME)/" | xargs -r -n2 mv -v
 	find . -name '*###uname###*' -type d |          sed -e "p;s/###uname###/$(UNAME)/" | xargs -r -n2 mv -v
