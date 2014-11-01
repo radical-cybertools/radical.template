@@ -3,7 +3,11 @@ MAKEFLAGS += " --no-print-directory "
 
 define HELP
 
-    Note that this Makefile creates and maintaines a virtualenv in ./ve/.
+    ----------------------------------------------------------------------------
+    NOTE: this Makefile creates and maintaines a virtualenv in ./ve !
+          You can always delete that virtualenv without side effects.
+          But you can also of course also use it for your own purposes.
+          'make distclean' will recreate that virtualenv from scratch.
 
     make install
         use 'pip install' to install in virtualenv in ./ve/
@@ -20,20 +24,19 @@ define HELP
     make docs
         build documentation via sphinx
 
-
     make prep_git
         Follow the guidelines to set up and populate a repository on github.
 
     make prep_rtd
         Follow the guidelines to set up readthedocs
 
-
     make prep_pypi
         Follow the guidelines to set up pypi poackaging and upload
 
-    # not yet implemented:
     make prep_jenkins
         Follow the guidelines to set up Jenkins testing
+    ----------------------------------------------------------------------------
+
 endef
 
 .PHONY: help
@@ -66,7 +69,7 @@ install-py:: virtualenv
 .PHONY: virtualenv
 virtualenv:: $(VE)
 $(VE):
-	virtualenv $(VE)
+	test -d $(VE) || virtualenv $(VE)
 
 .PHONY: test tests
 tests:: test
@@ -127,6 +130,7 @@ clean::
 .PHONY: distclean
 distclean:: clean
 	rm -rf ve 
+	make virtualenv
 
 
 .PHONY: prep_git
