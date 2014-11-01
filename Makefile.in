@@ -136,7 +136,7 @@ prep_git:
 	@echo "After each step, press <enter>."
 	@echo "You can iterrupt (and then restart( via <ctrl-C>"
 	@echo
-	@echo "  * Create an account (or sign in) on http://github.com)"
+	@echo "  * Create an account (or sign in) on http://github.com"
 	@read reply
 	@echo "  * Join the RADICAL project at https://github.com/radical-cybertools/ "
 	@echo "    On Problems, contact Ole or Andre (ole.weidner@rutgers.edu, andre@merzky.net)."
@@ -173,7 +173,7 @@ prep_pypi:
 	@echo "After each step, press <enter>."
 	@echo "You can iterrupt (and then restart( via <ctrl-C>"
 	@echo
-	@echo "  * Create an account (or sign in) on http://pypi.python.org/pypi/)"
+	@echo "  * Create an account (or sign in) on http://pypi.python.org/pypi/"
 	@echo "    On Problems, contact Ole or Andre (ole.weidner@rutgers.edu, andre@merzky.net)."
 	@read reply
 	@echo "  * create a '$$HOME/.pypirc' with the following content:"
@@ -205,6 +205,40 @@ prep_pypi:
 	@echo "      * ensure basic functionality, eg. via 'radical###lname###-version'"
 	@read reply
 	@echo "  * Pypi setup is now done."
+	@read reply
+	@echo "---------------------------------------------------------------------------------"
+	@echo
+
+
+.PHONY: prep_readthedocs
+prep_readthedocs: prep_rtd
+.PHONY: prep_rtd
+prep_rtd:
+	@echo
+	@echo "---------------------------------------------------------------------------------"
+	@echo "After each step, press <enter>."
+	@echo "You can iterrupt (and then restart( via <ctrl-C>"
+	@echo
+	@echo "  * Create an account (or sign in) on https://readthedocs.org/"
+	@echo "    On Problems, contact Ole or Andre (ole.weidner@rutgers.edu, andre@merzky.net)."
+	@read reply
+	@echo "  * select 'Add Project' from top-left drop-down menu"
+	@read reply
+	@echo "  * use the following settings:"
+	@echo "      * name     : radical.###lname###"
+	@echo "      * git url  : https://github.com/radical-cybertools/radical.###lname###.git"
+	@echo "      * doc type : sphinx"
+	@echo "      * home page: https://github.com/radical-cybertools/radical.###lname###/"
+	@read reply
+	@echo 
+	@echo "  * after project creation, select the 'Admin' tab and set/add:"
+	@echo "      * Advanced Settings: 'use virtualenv': yes"
+	@echo "      * Advanced Settings: 'privacy level' : public"
+	@echo "      * Notifications    : 'email'         : <your email>"
+	@echo "      * Maintainers      : 'add'           : radical"
+	@echo "    The last item will add the generic 'radical' rtd account as manager."
+	@read reply
+	@echo "  * RTD setup is now done."
 	@read reply
 	@echo "---------------------------------------------------------------------------------"
 	@echo
