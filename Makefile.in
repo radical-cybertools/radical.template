@@ -5,15 +5,34 @@ define HELP
 
     Note that this Makefile creates and maintaines a virtualenv in ./ve/.
 
-    make pylint
-        run pylint check on all python source files in radical/
-
     make install
         use 'pip install' to install in virtualenv in ./ve/
+
+    make pylint
+        run pylint check on all python source files in radical/
 
     make pypi
         create source distribution and upload to pypi
 
+    make test
+        run unit tests via pytest
+
+    make docs
+        build documentation via sphinx
+
+
+    # not yet implemented:
+    make prep_git
+        Follow the guidelines to set up and populate a repository on github.
+
+    make prep_rtd
+        Follow the guidelines to set up readthedocs
+
+    make prep_jenkins
+        Follow the guidelines to set up Jenkins testing
+
+    make prep_pypi
+        Follow the guidelines to set up pypi poackaging and upload
 
 endef
 

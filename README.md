@@ -33,6 +33,8 @@ Make Targets:
   run the test suite via py.test
 * `make pypi`
   package and upload to pypi
+* `make pylint`
+  perform pylint checks
 * `make prep_git`
   follow the guidelines to set up and populate a repository on github.
 * `make prep_rtd`
@@ -62,8 +64,9 @@ the box (some will create a virtualenv on the fly):
 
 ```
    make install
-   make test
    make docs
+   make test
+   make pylint
    make clean
 ```
 

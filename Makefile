@@ -21,19 +21,6 @@ define HELP
         prepares this copy of radical.template to host module radical.<NAME>
 		NAME can be CamelCased.
 
-    make prep_git
-        Follow the guidelines to set up and populate a repository on github.
-
-    make prep_rtd
-        Follow the guidelines to set up readthedocs
-
-    make prep_jenkins
-        Follow the guidelines to set up Jenkins testing
-
-    make prep_pypi
-        Follow the guidelines to set up pypi poackaging and upload
-
-
 endef
 
 .PHONY: help
@@ -69,5 +56,4 @@ else
 	mv Makefile.in Makefile
 endif
 
-:e Ma	
 
