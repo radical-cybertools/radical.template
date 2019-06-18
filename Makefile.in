@@ -35,6 +35,10 @@ define HELP
 
     make prep_jenkins
         Follow the guidelines to set up Jenkins testing
+
+    make untempletize
+	    Revert the steps done by `NAME=foo make teplatize`.
+		THIS IS NOT REVERSIBLE AND MAY REMOVE WORK!
     ----------------------------------------------------------------------------
 
 endef
@@ -129,7 +133,7 @@ clean::
 
 .PHONY: distclean
 distclean:: clean
-	rm -rf ve 
+	rm -rf ve
 	make virtualenv
 
 
@@ -181,10 +185,10 @@ prep_pypi:
 	@echo "    On Problems, contact Ole or Andre (ole.weidner@rutgers.edu, andre@merzky.net)."
 	@read reply
 	@echo "  * create a '$$HOME/.pypirc' with the following content:"
-	@echo 
+	@echo
 	@echo "        [pypirc]"
 	@echo "        servers = pypi"
-	@echo 
+	@echo
 	@echo "        [server-login]"
 	@echo "        username:<your_username>"
 	@echo "        password:<your_password>"
@@ -234,7 +238,7 @@ prep_rtd:
 	@echo "      * doc type : sphinx"
 	@echo "      * home page: https://github.com/radical-cybertools/radical.###lname###/"
 	@read reply
-	@echo 
+	@echo
 	@echo "  * after project creation, select the 'Admin' tab and set/add:"
 	@echo "      * Advanced Settings: 'use virtualenv': yes"
 	@echo "      * Advanced Settings: 'privacy level' : public"
@@ -257,7 +261,7 @@ prep_jenkins:
 	@echo "  * Create an account on testing.saga-project.org."
 	@echo "    Contact Ole or Andre (ole.weidner@rutgers.edu, andre@merzky.net)."
 	@read reply
-	@echo "  * Use that account to login to http://testing.saga-project.org:8080/" 
+	@echo "  * Use that account to login to http://testing.saga-project.org:8080/"
 	@read reply
 	@echo "  * Add new Jenkins job at http://testing.saga-project.org:8080/view/All/newJob"
 	@echo "      * name     : radical.###lname###"
@@ -271,4 +275,16 @@ prep_jenkins:
 	@read reply
 	@echo "---------------------------------------------------------------------------------"
 	@echo
+
+
+.PHONY: untemplatize
+untemplatize:
+	@test -d .git.radical.template || (echo "original .git missing" && false)
+	@rm -rf .git
+	@mv .git.radical.template .git
+	@git reset --hard HEAD
+	-@rm -rf src/radical/$(PROJECT_NAME)/
+	-@rm -f  bin/radical$(PROJECT_NAME)-version
+	-@rm -f  docs/source/module_$(PROJECT_NAME).rst
+	-@rm -f tests/unittests/test_$(PROJECT_NAME).py
 
