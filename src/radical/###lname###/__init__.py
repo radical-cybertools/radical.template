@@ -1,14 +1,19 @@
 
 from ###lname###_module import *
 
+
 # ------------------------------------------------------------------------------
+#
+import os as _os
+import radical.utils as _ru
 
-import os
 
-_mod_root = os.path.dirname (__file__)
+_root = _os.path.dirname(__file__)
 
-version        = open (_mod_root + "/VERSION",     "r").readline ().strip ()
-version_detail = open (_mod_root + "/VERSION.git", "r").readline ().strip ()
+version_short, version_detail, version_base, version_branch, \
+        sdist_name, sdist_path = _ru.get_version(_root)
+version = version_short
+
 
 # ------------------------------------------------------------------------------
 
