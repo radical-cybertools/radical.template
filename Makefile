@@ -54,7 +54,7 @@ else
 	@ grep   -ilr  '###nstar###'   * | xargs -n 1 -tr sed -i 's/###nstar###/$(NSTAR)/g'
 	@ mv Makefile.in Makefile
 	@ # mv .git .git.radical.template
-	@ git add bin/radical###lname###-version
+	@ git add bin/radical-###lname###-version
 	@ git add docs/source/module_###lname###.rst
 	@ git add src/radical/###lname###/
 	@ git add tests/unittests/test_###lname###.py

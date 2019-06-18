@@ -287,7 +287,7 @@ setup_args = {
     'package_dir'        : {'': 'src'},
     'package_data'       : {'': ['*.txt', '*.sh', '*.json', '*.gz', '*.c',
                                  'VERSION', 'SDIST', sdist_name]},
-    'scripts'            : ['bin/radical###lname###-version'],
+    'scripts'            : ['bin/radical-###lname###-version'],
   # 'setup_requires'     : ['pytest-runner'],
     'install_requires'   : ['radical.utils'],
     'tests_require'      : ['pytest', 'coverage', 'flake8', 'pudb', 'pylint'],
