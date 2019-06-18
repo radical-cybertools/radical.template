@@ -35,22 +35,23 @@ ifndef NAME
 	@printf "\n\n    Error: no project NAME given!\n"
 	@$(MAKE) help
 else
+	read X
 	@echo "CNAME: $(CNAME)"
 	@echo "LNAME: $(LNAME)"
 	@echo "UNAME: $(UNAME)"
 	mv .git .git.radical.template
 	find . -name '*###cname###*' -type d |          sed -e "p;s/###cname###/$(CNAME)/" | xargs -r -n2 mv -v
-	read
+	read X
 	find . -name '*###lname###*' -type d |          sed -e "p;s/###lname###/$(LNAME)/" | xargs -r -n2 mv -v
-	read
+	read X
 	find . -name '*###uname###*' -type d |          sed -e "p;s/###uname###/$(UNAME)/" | xargs -r -n2 mv -v
-	read
+	read X
 	find . -name '*###cname###*'   |                sed -e "p;s/###cname###/$(CNAME)/" | xargs -r -n2 mv -v
-	read
+	read X
 	find . -name '*###lname###*'   |                sed -e "p;s/###lname###/$(LNAME)/" | xargs -r -n2 mv -v
-	read
+	read X
 	find . -name '*###uname###*'   |                sed -e "p;s/###uname###/$(UNAME)/" | xargs -r -n2 mv -v
-	read
+	read X
 	grep   -ilr  '###cname###'   * | xargs -n 1 -tr sed -i 's/###cname###/$(CNAME)/g'
 	grep   -ilr  '###lname###'   * | xargs -n 1 -tr sed -i 's/###lname###/$(LNAME)/g'
 	grep   -ilr  '###uname###'   * | xargs -n 1 -tr sed -i 's/###uname###/$(UNAME)/g'
