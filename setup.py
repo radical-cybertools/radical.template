@@ -284,9 +284,10 @@ setup_args = {
         'Operating System :: Unix'
     ],
     'packages'           : find_packages('src'),
-    'scripts'            : ['bin/radical###lname###-version'],
+    'package_dir'        : {'': 'src'},
     'package_data'       : {'': ['*.txt', '*.sh', '*.json', '*.gz', '*.c',
                                  'VERSION', 'SDIST', sdist_name]},
+    'scripts'            : ['bin/radical###lname###-version'],
   # 'setup_requires'     : ['pytest-runner'],
     'install_requires'   : ['radical.utils'],
     'tests_require'      : ['pytest', 'coverage', 'flake8', 'pudb', 'pylint'],
