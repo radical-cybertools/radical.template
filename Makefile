@@ -40,11 +40,17 @@ else
 	@echo "UNAME: $(UNAME)"
 	mv .git .git.radical.template
 	find . -name '*###cname###*' -type d |          sed -e "p;s/###cname###/$(CNAME)/" | xargs -r -n2 mv -v
+	read
 	find . -name '*###lname###*' -type d |          sed -e "p;s/###lname###/$(LNAME)/" | xargs -r -n2 mv -v
+	read
 	find . -name '*###uname###*' -type d |          sed -e "p;s/###uname###/$(UNAME)/" | xargs -r -n2 mv -v
+	read
 	find . -name '*###cname###*'   |                sed -e "p;s/###cname###/$(CNAME)/" | xargs -r -n2 mv -v
+	read
 	find . -name '*###lname###*'   |                sed -e "p;s/###lname###/$(LNAME)/" | xargs -r -n2 mv -v
+	read
 	find . -name '*###uname###*'   |                sed -e "p;s/###uname###/$(UNAME)/" | xargs -r -n2 mv -v
+	read
 	grep   -ilr  '###cname###'   * | xargs -n 1 -tr sed -i 's/###cname###/$(CNAME)/g'
 	grep   -ilr  '###lname###'   * | xargs -n 1 -tr sed -i 's/###lname###/$(LNAME)/g'
 	grep   -ilr  '###uname###'   * | xargs -n 1 -tr sed -i 's/###uname###/$(UNAME)/g'
