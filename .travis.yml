@@ -1,0 +1,36 @@
+# After changing this file, check it on:
+#   http://lint.travis-ci.org/
+language: python
+
+services:
+
+python:
+  - "2.7"
+
+before_install:
+  - pwd
+  - ls -a
+  - uname -a
+  - free -m
+  - df -h
+  - ulimit -a
+  - python -V
+
+install:
+  - pip install . -vvv
+  - pip install pylint coverage flake8 codecov pytest
+
+script:
+  - pytest tests/
+  - flake8 --show-source --statistics --config=.flake8 || true
+  - codecov
+
+notifications:
+  email:
+    recipients:
+      - rct-tests@googlegroups.com
+    on_success: change
+    on_failure: always
+
+after_success:
+

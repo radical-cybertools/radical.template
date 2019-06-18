@@ -29,8 +29,8 @@ help:
 	@true
 
 
-.PHONY: templetize
-templetize::
+.PHONY: templatize
+templatize::
 ifndef NAME
 	@printf "\n\n    Error: no project NAME given!\n"
 	@$(MAKE) help

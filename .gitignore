@@ -1,8 +1,5 @@
-# misc
 *.py[cod]
-__pycache__
 .env
-.session.vim
 ve/
 
 # C extensions
@@ -29,7 +26,6 @@ pip-log.txt
 .coverage
 .tox
 nosetests.xml
-pylint.log
 
 # Translations
 *.mo
@@ -38,4 +34,3 @@ pylint.log
 .mr.developer.cfg
 .project
 .pydevproject
-
