@@ -57,9 +57,9 @@ else
 	@ git add docs/
 	@ git add src/
 	@ git add tests/
-	@ "-----------------------------------"
-	@ "run: git commit -am 'initial commit'"
-	@ "-----------------------------------"
+	@ echo "------------------------------------"
+	@ echo "run: git commit -am 'initial commit'"
+	@ echo "------------------------------------"
 
 endif
 
